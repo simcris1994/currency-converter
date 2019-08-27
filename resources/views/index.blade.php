@@ -12,8 +12,40 @@
 </head>
 <body>
 
-<div class="container-fluid">
-    <h1>Hello, world!</h1>
+<div class="container">
+    <h3>Currency converter</h3>
+    <div class="row">
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="From" id="from">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <select class="custom-select" id="list1">
+                    @foreach($currencies as $curr)
+                        <option value={{$loop->index+1}}>{{$curr["id"]}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="To" id="to">
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="input-group mb-3">
+                <select class="custom-select" id="list2">
+                    @foreach($currencies as $curr)
+                        <option value={{$loop->index+1}}>{{$curr["id"]}}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
