@@ -1,4 +1,4 @@
-$('#from').on('input', function() {
+$('#from, #list1, #list2').on('input', function() {
     let from = $("#list1 option:selected").text();
     let to = $("#list2 option:selected").text();
     let amount = $("#from").val();
