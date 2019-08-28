@@ -8,12 +8,10 @@ In order to run the application follow these steps:
 
 2. Run "composer install"
 
-3. In the root folder, create a file named ".env" and paste the following text: "APP_KEY="
+3. Run "php artisan key:generate". This will create an application key and paste in into the .env file.
 
-4. Run "php artisan key:generate". This will create an application key and paste in into the .env file.
+4. Run "php artisan config:cache"
 
-5. Run "php artisan config:cache"
+5. Run "php artisan serve"
 
-6. Run "php artisan serve"
-
-7. Go to "http://localhost:8000"
+6. Go to "http://localhost:8000"
