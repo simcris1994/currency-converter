@@ -24,6 +24,6 @@ class CurrencyController extends Controller
     {
         $lookup = new ExchangeRatesAPI();
         $lookup->setBaseCurrency($from_currency);
-        return $lookup->convert($to_currency, $amount, 2);
+        return $lookup->convert($to_currency, 1, 2);
     }
 }

@@ -34,6 +34,12 @@
             border-radius: 5px;
         }
 
+        #button-container {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+        }
+
         .links > a {
             color: #636b6f;
             padding: 0 25px;
@@ -49,41 +55,51 @@
 </head>
 <body>
 
-<div style="display: flex">
+<div>
     <div class="container col-4 align-self-center">
         <h3 class="mt-3 mb-3 text-center">Currency converter</h3>
-        <div class="div-border">
-            <div class="row justify-content-center mt-5">
-                <div class="col-3">
-                    <div class="input-group mb-3 input-border">
-                        <input type="text" class="form-control" aria-label="From" id="from" value="1">
+        <div class="row div-border">
+            <div class="col">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-4">
+                        <div class="input-group mb-3 input-border">
+                            <input type="text" class="form-control" aria-label="From" id="from" value="1">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group mb-3 input-border">
+                            <select class="custom-select" id="list1">
+                                @foreach($currencies as $curr)
+                                    <option value={{$loop->index+1}}>{{$curr}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="input-group mb-3 input-border">
-                        <select class="custom-select" id="list1">
-                            @foreach($currencies as $curr)
-                                <option value={{$loop->index+1}}>{{$curr}}</option>
-                            @endforeach
-                        </select>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-4">
+                        <div class="input-group mb-3 input-border">
+                            <input type="text" class="form-control" aria-label="To" id="to" value="1">
+                        </div>
                     </div>
+                    <div class="col-4">
+                        <div class="input-group mb-2 input-border">
+                            <select class="custom-select" id="list2">
+                                @foreach($currencies as $curr)
+                                    <option value={{$loop->index+1}}>{{$curr}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-2">
+                    <p class="text-justify font-weight-bold" id="info"></p>
                 </div>
             </div>
-            <div class="row justify-content-center mb-5">
-                <div class="col-3">
-                    <div class="input-group mb-3 input-border">
-                        <input type="text" class="form-control" aria-label="To" id="to" value="1">
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="input-group mb-3 input-border">
-                        <select class="custom-select" id="list2">
-                            @foreach($currencies as $curr)
-                                <option value={{$loop->index+1}}>{{$curr}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+            <div class="col-sm-2" id="button-container">
+                <button id="switch" type="button" class="btn btn-default" aria-label="Left Align">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -92,6 +108,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/fb02e4ee0c.js"></script>
 {!! Html::script('js/convert.js') !!}
 </body>
 </html>
