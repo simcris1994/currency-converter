@@ -11,7 +11,7 @@
     <!-- Styles -->
     <style>
         html, body {
-            background-color: #fff;
+            background-color: #d9ded9;
             color: #636b6f;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
@@ -24,32 +24,14 @@
             margin-bottom: auto;
         }
 
-        .full-height {
-            height: 100vh;
+        .div-border {
+            border: 2px solid #8b8f8b;
+            border-radius: 10px;
         }
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
+        .input-border {
+            border: 1px solid #8b8f8b;
+            border-radius: 5px;
         }
 
         .links > a {
@@ -61,48 +43,46 @@
             text-decoration: none;
             text-transform: uppercase;
         }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
     </style>
 
     <title>Currency converter</title>
 </head>
 <body>
 
-<div class="container">
-    <h3 class="mt-3 mb-3 text-center">Currency converter</h3>
-    <div class="border">
-        <div class="row justify-content-center mt-5">
-            <div class="col-3">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="From" id="from">
+<div style="display: flex">
+    <div class="container col-4 align-self-center">
+        <h3 class="mt-3 mb-3 text-center">Currency converter</h3>
+        <div class="div-border">
+            <div class="row justify-content-center mt-5">
+                <div class="col-3">
+                    <div class="input-group mb-3 input-border">
+                        <input type="text" class="form-control" aria-label="From" id="from" value="1">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group mb-3 input-border">
+                        <select class="custom-select" id="list1">
+                            @foreach($currencies as $curr)
+                                <option value={{$loop->index+1}}>{{$curr}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="col-3">
-                <div class="input-group mb-3">
-                    <select class="custom-select" id="list1">
-                        @foreach($currencies as $curr)
-                            <option value={{$loop->index+1}}>{{$curr}}</option>
-                        @endforeach
-                    </select>
+            <div class="row justify-content-center mb-5">
+                <div class="col-3">
+                    <div class="input-group mb-3 input-border">
+                        <input type="text" class="form-control" aria-label="To" id="to" value="1">
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="row justify-content-center mb-5">
-            <div class="col-3">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="To" id="to">
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="input-group mb-3">
-                    <select class="custom-select" id="list2">
-                        @foreach($currencies as $curr)
-                            <option value={{$loop->index+1}}>{{$curr}}</option>
-                        @endforeach
-                    </select>
+                <div class="col-4">
+                    <div class="input-group mb-3 input-border">
+                        <select class="custom-select" id="list2">
+                            @foreach($currencies as $curr)
+                                <option value={{$loop->index+1}}>{{$curr}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
